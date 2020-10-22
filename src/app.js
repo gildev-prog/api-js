@@ -4,6 +4,7 @@ import routes from "./routes.js";
 import "./database/index"
 
 
+
 class App {
     constructor() {
         this.server = express();
@@ -13,7 +14,6 @@ class App {
     middlewares() {
         this.server.use(cors());
         this.server.use(express.json());
-
     }
 
 
