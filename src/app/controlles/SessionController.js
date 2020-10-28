@@ -5,7 +5,7 @@ import User from "../models/User.js";
 class SessionController {
     async store(req, res) {
         const { mail, password } = req.body;
-        //    console.log(mail)
+           console.log(req.body)
         try {
             const fulano = await User.findOne({
                 where: { mail: mail }
@@ -28,10 +28,8 @@ class SessionController {
             let token = jwt.sign(  { id }, authConfig.secret, { expiresIn: authConfig.expiresIn } );
 
 
-            return res.json({
-                user: fulano,
-                token: token,
-            });
+            return res.status(200).json({user: fulano, token:token});
+
 
         } catch (error) {
             console.log("errorr => ", error);
